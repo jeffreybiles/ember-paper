@@ -23,19 +23,19 @@ export default Ember.Mixin.create({
 
   rippleContainerSelector: '',
 
-  didInsertElement() {
-    this._super(...arguments);
-    if (!this.get('noink')) {
-      this.element = this.$();
-      this.colorElement = this.$();
-      this.node = this.element[0];
-      this.hammertime = propagating(new Hammer(this.node));
-      this.color = this.parseColor(this.element.attr('md-ink-ripple')) || this.parseColor(window.getComputedStyle(this.colorElement[0]).color || 'rgb(0, 0, 0)');
-      if (this.get('mousedown')) {
-        this.hammertime.on('hammer.input', Ember.run.bind(this, this.onInput));
-      }
-    }
-  },
+  // didInsertElement() {
+  //   this._super(...arguments);
+  //   if (!this.get('noink')) {
+  //     this.element = this.$();
+  //     this.colorElement = this.$();
+  //     this.node = this.element[0];
+  //     this.hammertime = propagating(new Hammer(this.node));
+  //     this.color = this.parseColor(this.element.attr('md-ink-ripple')) || this.parseColor(window.getComputedStyle(this.colorElement[0]).color || 'rgb(0, 0, 0)');
+  //     if (this.get('mousedown')) {
+  //       this.hammertime.on('hammer.input', Ember.run.bind(this, this.onInput));
+  //     }
+  //   }
+  // },
 
   willDestroyElement() {
     this._super(...arguments);
